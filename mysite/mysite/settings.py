@@ -14,9 +14,11 @@ import os
 from pathlib import Path
 from pyexpat.errors import messages
 
+# user login to show messages from django 
+from django.contrib.messages import constants as messages
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -36,6 +38,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
+    'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,9 +143,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # message , error ---> bootstrap danger color
-# MESSAGE_TAGS = {
-#    messages.ERROR: 'danger'
-# }
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
